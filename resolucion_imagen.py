@@ -80,8 +80,8 @@ class ResolucionImagen:
         normalizado.
         
         Parámetros:
-        name (str): Nombre del archivo que contiene la imagen e
-            identificador.
+        name (str): Nombre del archivo que contiene la imagen, 
+            utilizado además como identificador de la imagen.
         matB-G-R (np.ndarray): Matrices de cada color (azul-verde-rojo),
             con valores por cada pixel de la imagen.
 

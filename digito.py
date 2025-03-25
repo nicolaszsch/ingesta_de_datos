@@ -105,8 +105,10 @@ class Digito:
         Genera y retorna información sobre los pixeles de la imagen.
 
         Primero genera el nombre del archivo de la imagen que contiene
-        al Digito, para luego "leerla" con OpenCV, y así generar las
-        matrices de los 3 colores, con los cuales, a través de
+        al Digito (utilizado como identificador de la imagen), y a 
+        partir de éste, genera la dirección de la ubicación del archivo,
+        y así poder "leer" la imagen con OpenCV, para luego generar las
+        matrices de los 3 colores, con las cuales, a través de 
         aplanar_y_normalizar, se genera una lista con los valores
         normalizados de cada pixel de la imagen. Finalmente retorna
         esta lista.
@@ -118,7 +120,8 @@ class Digito:
         m = configuracion.mes
         d = configuracion.dia
         nombre = (a + '-' + m + '-' + d + '_'+ self._cod_ima)
-        imagen = cv2.imread(nombre + '.jpeg')
+        dir_img = ('Imagenes/'+ a + '-' + m + '-' + d + '/' + nombre)
+        imagen = cv2.imread(dir_img + '.jpeg')
         B, G, R = cv2.split(imagen)
         pix = self._res_imag.aplanar_y_normalizar(nombre, B, G, R)
         return pix

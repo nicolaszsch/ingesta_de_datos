@@ -3,11 +3,11 @@
 Este proyecto, en estricto rigor, es la sección de TL (transformación y carga) de un proyecto más grande, el que espero subir pronto.  
   
 El propósito es la obtención de los valores de unos indicadores que hay en la Web, que se actualizan diariamente.  
-Esto se realiza a través de la obtención de imágenes de los indicadores, la posterior idendtificación de los valores contenidos en las imágenes, reconociendo cada uno de los dígitos, y la actualización del registro histórico de los valores. El proyecto subido al este repositorio no considera la obtención de las imágenes, éstas se agregan directamente a éste, pero mi idea sería, si es posible, subir esa sección en algún momento, al menos explicando cómo hacerlo.  
+Esto se realiza a través de la obtención de imágenes de los indicadores, la posterior identificación de los valores contenidos en las imágenes, reconociendo cada uno de los dígitos, y la actualización del registro histórico de los valores. El proyecto subido al este repositorio no considera la obtención de las imágenes, éstas se agregan directamente a éste, pero mi idea sería, si es posible, subir esa sección en algún momento, al menos explicando cómo hacerlo.  
 Lamentablemente no existe una API de la Web para extraer de forma más directa la información, pero es posible que, más adelante, se pueda encontrar una forma más simple para la obtención de los datos, pero aún así este proyecto al menos logra el reconocimiento de dígitos contenidos en imágenes, que ya en sí es una base para realizar otra cosas.  
 Para el reconocimiento de los dígitos contenidos en las imágenes, se realiza, por ahora, un modelo de identificación de dígitos por cada una de las resoluciones de las imágenes que contienen los dígitos de los indicadores. En este caso se utiliza la resolución de 8x15 y 13x25 pixeles. Para la identificación de las imágenes se utiliza Machine Learning, es específico Regresión Logística sobre la información, de la cual se hace reducción de dimensionalidad con PCA, de los pixeles de éstas.  
   
-Se intenó que el código fuera lo más simple y directo posible, está documentado y siguiendo las convenciones de PEP8, más allá de pueden encontrarse algún error al respecto.  
+Se intentó que el código fuera lo más simple y directo posible, está documentado y siguiendo las convenciones de PEP8, más allá de pueden encontrarse algún error al respecto.  
 Si se encuentra una mejor forma de hacer algo, o derechamente una corrección, agradecería mucho hacérmela llegar, al igual que cualquier otra duda o solicitud al respecto.  
   
 ### Instalación y uso
@@ -38,11 +38,11 @@ pip install -r requirements.txt
 
 Para ejecutar el programa, se debe ejecutar el main, es decir, 'main.py'.
 
-Se debe tener en cuenta que el registro histórico de los valores se encuentra en 'Valores.csv', que en está versión sólo tiene información utilizada como set de entrenamiento, es decir los primeros 7 registros asociados a cada indicador (hasta 2025-01-07).  
-Al ejecutar, se le solicitará la fecha de las imágenes sore la cual se identificarán los valores. Por ahora sólo se pedirá mes y día, los cuales deben ir en formato MM y DD (ejemplo: 01, 12, 17, 31).  
-Se puede verificar las fechas disponibles identificando la fecha de las imágenes en el fichero (en este momento el 01-08). Estaré constantemente subiendo las imágenes más actuales.  
+Se debe tener en cuenta que el registro histórico de los valores se encuentra en 'Valores.csv', y que en esta versión sólo se encontrará el registro respecto a la información utilizada como set de entrenamiento, es decir los primeros 7 registros asociados a cada indicador (hasta 2025-01-07).  
+Al ejecutar, se le solicitará la fecha de las imágenes respecto de las cuales se identificarán los valores. Por ahora sólo se pedirá mes y día, los cuales deben ir en formato MM y DD (ejemplo: 01, 12, 17, 31).  
+Se puede verificar las fechas disponibles identificando las fechas de las imágenes la carpeta/directorio Imagenes. Estaré constantemente subiendo las imágenes más actuales.  
 Algunos de los valores están relacionados con otros, por lo que estas relaciones se utilizan para validar que los valores identificados se hayan determinado bien.  
-Si la validación es correcta, se le dará la posibilidad de actualizar el registro de los indicadires. Si se elige no, se le dará la posibilidad de imprimir el registro incluyendo los nuevos valores. Si se elige sí, se le preguntará si se actualiza en el archivo con los registros, por lo que si decide que sí, se actualizará el archivo que contiene la historia con los valores identificados por el modelo, y si se elige no, se creará el archivo "Valores Nuevos. csv", donde se cargará el registro de los indicadores (este último archivo no generará actualización de la historia utilizada por el modelo).  
+Si la validación es correcta, se le dará la posibilidad de actualizar el registro de los indicadores. Si se elige no, se le dará la posibilidad de imprimir el registro incluyendo los nuevos valores. Si se elige sí, se le preguntará si se actualiza en el archivo con los registros, por lo que si decide que sí, se actualizará el archivo que contiene la historia con los valores identificados por el modelo, y si se elige no, se creará el archivo "Valores Nuevos. csv", donde se cargará el registro de los indicadores (este último archivo no generará actualización de la historia utilizada por el modelo).  
   
 ### Mejoras por realizar al proyecto
 
