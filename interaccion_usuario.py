@@ -1,49 +1,53 @@
 """
-Este módulo contiene las funciones con las que el programa se relaciona con el
-usuario, que, básicamente, es para saber cobn qué fecha trabajar, y qué hacer
-con los Valores obtenidos. 
+Este módulo contiene las funciones con las que el programa se relaciona
+con el usuario, que, básicamente, es para saber con qué fecha trabajar,
+y qué hacer con los Valores obtenidos. 
 """
+
+from configuracion import dir_registros, dir_nuevo
 
 def solicitar_fecha():
     """
     Solicita al usuario el año, mes y día de la fecha de la que que se 
-    requiere obtener los Valores. El print() es para que el mensaje se vea
-    más ordenado. 
+    requiere obtener los Valores. El "print()" es para que el mensaje
+    se vea más ordenado.
 
     Retorna:
     m, d (str): Mes y día de la fecha de cada imagen, utilizados para
-        que los Digitos puedan identificar sus valores, y así los Montos 
-        puedan calcular el suyo.
+        que los Digitos puedan identificar sus valores, y así los 
+        Montos puedan calcular el suyo.
     """
     print()
-    m = input('Mes: MM \n') # Mes  # Se deben hacer la validciones de que la fecha corresponda a las que hay disponibles.
-    d = input('Día: DD \n') # Día
+    m = input('Mes: MM \n')
+    d = input('Día: DD \n')
     return m, d
 
 
-def acciones_a_realizar(valid, reg_hist): # Dejar a, m, d como variable
+def acciones_a_realizar(valid, reg_hist):
     """
-    Se le da opciones al usuario respecto de qué hacer con los datos obtenidos.
+    Se da opciones al usuario sobre qué hacer con los datos obtenidos.
 
-    Si la validación de datos falla en alguna relación, se muestra un mensaje
-    de que las validaciones no son correctas, por lo que no se actualizan los
-    valores. Si las validaciones se cumplen, se le da opciones al usuario. La 
-   primera es sobre si actualizar el archivo con los nuevos valores, si la
-   respuesta es:
-        - Sí, Se pregunta si actualizar el archivo de prueba o no, por lo que,
-            si la respuesta es sí, se actualizará un archivo de prueba (que no
-            es el del que extrae la información Registro), si la respuesta es
-            no, se actualizará el archivo que contiene la información extraída
-            por Registro. Cualquier otra respuesta no actualiza el archivo.
-            Cada opción es complementada con su mensaje correspondiente.
-        - No, Se pregunta si imprimir la tabla con los valores actualizados,
-            si la respuesta es sí se imprimiran los valores, cualquier otra
-            respuesta finalizará el programa.
-        - Cualquier otra respuesta genera el mensaje de que no se responde por
-            un sí o un no, por lo que no se actualizará el archivo.
-    Para cada respuesta de sí o no, se aceptan las distintas opciones en 
-    minúcula, o la primerla letra mayúscula, y la opción con tilde.
-    """ #Podría haber una forma de aceptar moníscular o mayúsculas
+    Si la validación de datos falla en alguna relación, se muestra un
+    mensaje de que las validaciones no son correctas, por lo que no se
+    actualizan los valores. Si las validaciones se cumplen, se le da 
+    opciones al usuario. La primera es sobre si actualizar el archivo
+    con los nuevos valores, si la respuesta es:
+        - Sí, se pregunta si actualizar el archivo con los registros o
+            no, por lo que, si la respuesta es sí, se actualizará ese
+            archivo, mientras que, si la respuesta es no se actualizará
+            un archivo de prueba (que no es el del cual Registro extrae
+            la información). Cualquier otra respuesta no actualiza el
+            archivo. Cada opción es complementada con su mensaje 
+            correspondiente.
+        - No, se pregunta si imprimir la tabla con los valores 
+            actualizados, si la respuesta es sí se imprimiran los 
+            valores, cualquier otra respuesta finalizará el programa.
+        - Cualquier otra respuesta genera el mensaje de que no se 
+            responde por un sí o un no, por lo que no se actualizará el
+            archivo.
+    Para cada respuesta de sí o no, se aceptan distintas opciones, en 
+    minúscula, o la primerla letra mayúscula y la opción con tilde.
+    """ 
     if valid:
         actualizar = input('Dada que las validaciones están correctas,'
                            ' ¿actualizar el archivo con los nuevos valores?:'
@@ -59,15 +63,15 @@ def acciones_a_realizar(valid, reg_hist): # Dejar a, m, d como variable
         elif (actualizar == 'Sí' or actualizar == 'Si' or actualizar == 'sí' 
               or actualizar == 'si'):
             reg_hist.agregar_a_historia()
-            exportar = input('¿Actualizar en el archivo de prueba? / Sí o no'
-                             '\n')
+            exportar = input('¿Actualizar en el archivo con los registros? /'
+                             'Sí o no\n')
             if (exportar == 'Sí' or exportar == 'Si' or exportar == 'sí' or
                 exportar == 'si'): 
-                reg_hist.exportar_historia('Valores Nuevos.csv')
-                print('Se actualiza el archivo de prueba')
-            elif exportar == 'No' or exportar == 'no':
-                reg_hist.exportar_historia('Valores.csv')
+                reg_hist.exportar_historia(dir_registros)
                 print('Se actualiza el archivo con los nuevos valores')
+            elif exportar == 'No' or exportar == 'no':
+                reg_hist.exportar_historia(dir_nuevo)
+                print('Se genera el archivo de prueba con el registro')
             else:
                 print('No se respondió un sí o un no, por lo que NO se '
                       'actualizan los valores')

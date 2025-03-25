@@ -8,20 +8,17 @@ class Registro:
     """
     Gestiona y maneja la historia de los Valores.
 
-    Puede agregar información, la de los Valores, a la historia, además de
-    tener la capacidad de imprimirla, o exportarla a un archivo CSV que se
-    indique. Al actualizarla al archivo de origen la historia queda disponible
-    para las próximas lecturas.
-
-    Atributos de Clase:
-    dir_registros (str): Tiene la ubicación del archivo que contiene la
-        historia ya registrada de los Montos "nucleares".
+    Puede agregar la información de Valores a la historia, además de
+    tener la capacidad de imprimir o exportar a un archivo CSV (el que
+    se que se indique) la historia actualizada. Al actualizarla el 
+    archivo de almacena la historia, ésta queda disponible para las
+    próximas ejecuciones.
 
     Atributos de Instancia:
-    historia (pd.DataFrame): Datos con la historia de los registros. 
+    historia (pd.DataFrame): Datos con la historia de los Valores. 
         Inicialmente 'None'.
-    montos (list[Monto]): Lista con los Montos "nucleares" que son los que
-        cuentan con historia. 
+    montos (list[Monto]): Lista con los Montos "nucleares" que son
+        los que cuentan con historia.
     """
 
 
@@ -29,13 +26,13 @@ class Registro:
         """
         Inicializa una instancia de la clase Registro. 
         
-        Parámetros:
-        record_amounts (pd.DataFrame): Lista con los Montos "nucleares" que 
-        son los que cuentan con historia.
+        Parámetro:
+        record_amounts (list[Monto]): Lista con los Montos "nucleares",
+            que son los que cuentan con historia.
         
-        El atributo montos se inicializa record_amounts. Finalmente se llama a
-        inicializa_historia para generar la historia de los Montos
-        correspondientes.
+        El atributo montos se inicializa con record_amounts. Finalmente
+        se llama a inicializa_historia para generar la historia de los
+        Montos correspondientes.
         """
         self.__historia = None
         self._montos = record_amounts
@@ -45,12 +42,13 @@ class Registro:
         """
         Agrega al Registro los Valores actuales.
 
-        Primero se genera la lista que se utiliza para el encabezado, para
-        luego generar la lista con los Montos a registrar. Luego llama a 
-        gen_df para convertir la lista en un DataFrame (genrando de forma 
-        transitoria un arreglo de NumPy), y así poder concatenarla a la
-        la historia registrada actualmente, formando la historia actualizada,
-        que es la que se le asigna al atributo historia.
+        Primero se genera la lista que se utiliza para el encabezado,
+        para luego generar la lista con los Montos a registrar. Luego
+        llama a gen_df para convertir la lista en un DataFrame 
+        (generando de forma transitoria un arreglo de NumPy), y así 
+        poder concatenarla a la la historia registrada actualmente,
+        formando la historia actualizada, que es la que se le asigna al
+        atributo historia.
         """
         a = configuracion.ano
         m = configuracion.mes
@@ -74,30 +72,25 @@ class Registro:
     def exportar_historia(self, nombre_archivo):
         """
         Exporta la historia a un archivo CSV con el nombre indicado.
-        Si el nombre del archivo es el de origen, se actualizará la historia
-        de entrada al modelo.
+        Si el nombre del archivo es el de origen, se actualizará la
+        historia de entrada al modelo.
 
         Parámetro:
-        nombre_archivo (str): Nombre del archivo CSV al que se exportará la
-            historia.
+        nombre_archivo (str): Nombre del archivo CSV al que se 
+            exportará la historia.
         """
         self.__historia.to_csv(nombre_archivo)
      
     def imprimir_historia(self):
-        """ Imprime la historia."""
+        """ Imprime la historia"""
         print(self.__historia)
 
     def __inicializa_historia(self):
         """
-        Determina la historia, a partir de lo registrado hasta el momento.
+        Determina la historia, a partir de lo registrado al inicio.
 
-        Primero obtiene la información del archivo de origen, en la ubicación
+        Primero obtiene la información del archivo de origen, de nombre
         dir_registros, para luego asiasignársela al atributo historia.
         """
-        ### CSV
         reg_hist = leer_csv(configuracion.dir_registros)
-        self.__historia =  reg_hist
-    
-    # def eliminar(self):
-
-    
+        self.__historia =  reg_hist    
