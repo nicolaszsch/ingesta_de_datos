@@ -47,10 +47,10 @@ Si la validación es correcta, se le dará la posibilidad de actualizar el regis
 
 ### Mejoras por realizar al proyecto
 
-Generar validaciones a errores potenciales
-Adecuar flujo de acciones al interactuar con el usuario*
-Qué la generación de los pixeles sea directamente en escala de grises y liberar al código de esa transformación
-Fusionar los modelos de identificación de dígitos de cada resolución en uno que comprenda el de ambas resoluciones utilizadas
-Agregar en proyecto el entrenamiento del modelo
+*Generar validaciones a errores potenciales
+*Adecuar flujo de acciones al interactuar con el usuario [^1]
+*Qué la generación de los pixeles sea directamente en escala de grises y liberar al código de esa transformación
+*Fusionar los modelos de identificación de dígitos de cada resolución en uno que comprenda el de ambas resoluciones utilizadas
+*Agregar en proyecto el entrenamiento del modelo
 
-* Este proyecto no tenía la intención de compartirse en su inicio, por lo que hay varias cosas que faltan por adecuar para que no sólo sirva para el propósito que tengo yo, si no otras funcionalidades que tengan sentido. Esto se ejemplifica muy bien con el flujo de las posibles acciones que entrega el proyecto.
+[^1]: Este proyecto no tenía la intención de compartirse en su inicio, por lo que hay varias cosas que faltan por adecuar para que no sólo sirva para el propósito que tengo yo, si no otras funcionalidades que tengan sentido. Esto se ejemplifica muy bien con el flujo de las posibles acciones que entrega el proyecto.
