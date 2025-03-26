@@ -2,7 +2,6 @@
 Módulo con funciones genéricas usadas en distintas partes del proyecto.
 """
 
-
 import pandas as pd
 
 def gen_head(n, ind, prefix):

@@ -56,7 +56,6 @@ archivo que contiene el Registro.
 """
 
 
-
 # Variables utilizadas en Valores
 
 CODS_MONTOS = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K']

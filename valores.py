@@ -1,8 +1,8 @@
-from monto import Monto
 from resolucion_imagen import ResolucionImagen
-from funciones import leer_csv
+from monto import Monto
 from configuracion import (PIX_X,PIX_Y, dir_data, dir_hist,
                            CODS_MONTOS, LAR_MONTOS, IDS_13X25, IDS_REGISTRO)
+from funciones import leer_csv
 
 class Valores:
     """
@@ -27,8 +27,6 @@ class Valores:
     montos (list[Monto]): Lista con los Montos que componen Valores, la
         cual inicializa vacía.
     """
-
-
     def __init__(self):
         """
         Inicializa una instancia de la clase Monto. 
@@ -110,8 +108,7 @@ class Valores:
         else:
             print('Lectura Incorrecta. Falla la validación del Monto E') 
         return validador
-
-          
+     
     def imprimir_montos(self):
         """Imprime cada Monto contenido en Valores"""
         for i in range(len(CODS_MONTOS)):

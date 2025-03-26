@@ -1,8 +1,9 @@
 import pandas as pd
 import numpy as np
+
 from monto import Monto
-from funciones import gen_df, leer_csv
 import configuracion
+from funciones import gen_df, leer_csv
 
 class Registro:
     """
@@ -20,8 +21,6 @@ class Registro:
     montos (list[Monto]): Lista con los Montos "nucleares" que son
         los que cuentan con historia.
     """
-
-
     def __init__(self, record_amounts: list[Monto]):
         """
         Inicializa una instancia de la clase Registro. 
@@ -63,11 +62,10 @@ class Registro:
                           int(self._montos[4].valor_monto),
                           int(self._montos[5].valor_monto)]
         df_nuevos_valores = gen_df(
-                    np.array(nuevos_valores, dtype = object).reshape(1,-1),
+                    np.array(nuevos_valores, dtype=object).reshape(1,-1),
                     head, 'Fecha')
         registro_actualizado = pd.concat([self.__historia, df_nuevos_valores])
         self.__historia = registro_actualizado
-
 
     def exportar_historia(self, nombre_archivo):
         """

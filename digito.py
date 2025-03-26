@@ -1,8 +1,9 @@
 import cv2
 import numpy as np
+
 from resolucion_imagen import ResolucionImagen
-from funciones import gen_head, gen_df
 import configuracion 
+from funciones import gen_head, gen_df
 
 class Digito:
     """
@@ -21,8 +22,6 @@ class Digito:
         los pixeles de la imagen del Digito. Inicialmente 'None'.
     valor (int): Valor del dígito a identificar. Inicialmente 'None'.
     """
-
-
     def __init__(self, img_reso: ResolucionImagen, img_cod):  
         """
         Inicializa una instancia de la clase Digito. 

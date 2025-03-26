@@ -1,5 +1,5 @@
-from digito import Digito
 from resolucion_imagen import ResolucionImagen
+from digito import Digito
         
 class Monto:
     """
@@ -21,7 +21,6 @@ class Monto:
     valor_monto (int): Valor del Monto, calculado a partir de los 
         valores de cada Digito que lo componen. Inicialmente 'None'.
     """
-
     def __init__(self, imgs_reso: ResolucionImagen, amou_len: int, 
                  amou_cod: str):
         """
@@ -96,7 +95,6 @@ class Monto:
         for i in range(self._largo): 
             num += self._digitos[i].valor * 10**i
         return num
-
 
     def __inicializa_digitos(self, img_reso):
         """

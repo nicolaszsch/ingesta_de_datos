@@ -25,6 +25,7 @@ def asingar_fecha():
     configuracion.mes = m
     configuracion.dia = d
 
+
 def obtencion_y_validacion_valores():
     """
     Se insta el objeto Valores, generando que se insten en cadena las
@@ -45,6 +46,7 @@ def obtencion_y_validacion_valores():
     set_valores.asignar_valores_montos()
     validar = set_valores.validacion()
     return set_valores, validar
+
 
 def gen_registro(values):
     """

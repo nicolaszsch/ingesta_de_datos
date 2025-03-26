@@ -1,6 +1,7 @@
 from sklearn.decomposition import PCA
 from sklearn.linear_model import LogisticRegression
 import pandas as pd
+
 from configuracion import porcent_info_pca
                                    
 class ResolucionImagen:
@@ -30,8 +31,6 @@ class ResolucionImagen:
         utilizado para identificar los dígitos de cada imagen de esta
         resolución. Inicialmente 'None'.
     """
-
-
     def __init__(self, px: int, py: int, train_data: pd.DataFrame,
                  hist: pd.DataFrame):
         """
