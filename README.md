@@ -16,7 +16,7 @@ Si se encuentra una mejor forma de hacer algo, o derechamente una corrección, a
 
 Abrir terminal y ejecutar el siguiente comando:
 
-git clone https://github.com/nicolaszsch/Ingesta.git
+git clone https://github.com/nicolaszsch/ingesta_de_datos.git
 
 ##### 2. Crear y activar entorno virtual: (Opcional)
 
