@@ -12,9 +12,11 @@ Si se encuentra una mejor forma de hacer algo, o derechamente una corrección, a
   
 ### Instalación y uso
 
+Antes de empezar, se debe considerar que para la instalación y ejecución se necesitará tener instalado Python (con pip habilitado) y Git, además de tener un usuario en GitHub.
+
 ##### 1. Clonar el repositorio:
 
-Abrir terminal y ejecutar el siguiente comando:
+Abrir terminal, y estando ubicado en la carpeta en la que se quiere trabajar, ejecutar el siguiente comando:
 
 git clone https://github.com/nicolaszsch/ingesta_de_datos.git
 
